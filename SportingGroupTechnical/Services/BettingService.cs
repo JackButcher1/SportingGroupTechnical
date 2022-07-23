@@ -30,24 +30,26 @@ namespace SportingGroupTechnical.Services
 
             // Here we will assign a 'random' result to the associated Fixture, then set the IsWinner and Winnings properties of the Bet.
             // Of course in the real world, this would happen as a result of a fixture completing.
+            if (bet.Fixture!.Result == Result.UNDECIDED)
+            {
+                // Special case for Liverpool :)
+                if (bet.Fixture.HomeTeam == "Liverpool")
+                {
+                    bet.Fixture.Result = Result.HOME;
+                }
+                else if (bet.Fixture.AwayTeam == "Liverpool")
+                {
+                    bet.Fixture.Result = Result.AWAY;
+                }
+                else // Random
+                {
+                    Random random = new Random();
+                    bet.Fixture.Result = (Result)random.Next(1, 5);
+                }
 
-            // Special case for Liverpool :)
-            if (bet.Fixture!.HomeTeam == "Liverpool")
-            {
-                bet.Fixture.Result = Result.HOME;
+                bet.IsWinner = bet.Result == bet.Fixture.Result;
+                bet.Winnings = (Boolean)bet.IsWinner ? bet.Stake * bet.Fixture.Odds[bet.Result] : 0;
             }
-            else if (bet.Fixture!.AwayTeam == "Liverpool")
-            {
-                bet.Fixture.Result = Result.AWAY;
-            }
-            else // Random
-            {
-                Random random = new Random();
-                bet.Fixture!.Result = (Result)random.Next(4);
-            }
-
-            bet.IsWinner = bet.Result == bet.Fixture.Result;
-            bet.Winnings = (Boolean)bet.IsWinner ? bet.Stake * bet.Fixture.Odds[bet.Result] : 0;
 
             return bet;
         }
