@@ -79,7 +79,7 @@ namespace SportingGroupTechnical.Services
                 return -1;
             }
 
-            if (bet.Result != Result.HOME || bet.Result != Result.AWAY || bet.Result != Result.DRAW)
+            if (bet.Result != Result.HOME && bet.Result != Result.AWAY && bet.Result != Result.DRAW)
             {
                 // Error - invalid result.
                 return -1;
