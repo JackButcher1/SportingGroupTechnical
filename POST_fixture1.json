@@ -1,0 +1,11 @@
+{
+    "homeTeam": "Liverpool",
+    "awayTeam": "Arsenal",
+    "start": "2022-07-26T00:00:00",
+    "odds": {
+        "HOME": 1.2,
+        "AWAY": 3.5,
+        "DRAW": 2.3,
+        "CANCELLED": 1
+    }
+}

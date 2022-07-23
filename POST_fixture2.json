@@ -1,0 +1,11 @@
+{
+    "homeTeam": "Aston Villa",
+    "awayTeam": "Manchester City",
+    "start": "2022-07-28T00:00:00",
+    "odds": {
+        "HOME": 6.0,
+        "AWAY": 1.5,
+        "DRAW": 3.4,
+        "CANCELLED": 1
+    }
+}

@@ -13,12 +13,9 @@ The following endpoints are implemented:
 
 If the application is run via the Release .exe, the port should be automatically assigned to 5000. Therefore the URI is defined http://localhost:5000/{endpoint}.
 
-Some test HTTP request JSON bodies are included in the following files:
+Some test HTTP POST request JSON bodies are included in the following files:
  - POST_fixture1.json
  - POST_fixture2.json
  - POST_fixture3.json
- - GET_fixtures.json
  - POST_bet1.json
  - POST_bet2.json
- - GET_bet1.json
- - GET_bet2.json

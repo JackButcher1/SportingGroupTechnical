@@ -1,0 +1,11 @@
+{
+    "homeTeam": "West Ham United",
+    "awayTeam": "Manchester United",
+    "start": "2022-08-02T00:00:00",
+    "odds": {
+        "HOME": 2.1,
+        "AWAY": 1.7,
+        "DRAW": 1.5,
+        "CANCELLED": 1
+    }
+}
