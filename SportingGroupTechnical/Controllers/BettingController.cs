@@ -42,7 +42,10 @@ namespace SportingGroupTechnical.Controllers
         [HttpPost]
         public IActionResult Create(Bet bet)
         {
-            BettingService.Add(bet);
+            if (BettingService.Add(bet) == -1)
+            {
+                return BadRequest();
+            }
             return CreatedAtAction(nameof(Create), new { id = bet.Id }, bet);
         }
     }

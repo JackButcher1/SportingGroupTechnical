@@ -56,16 +56,32 @@ namespace SportingGroupTechnical.Services
          */
         public static Int32 Add(Bet bet)
         {
-            bet.Id = mNextId++;
-
             bet.Fixture = FixtureService.Get(bet.FixtureId);
             if (bet.Fixture is null)
             {
-                // TODO: error - fixture doesn't exist!
+                // Error - Fixture doesn't exist!
+                return -1;
             }
 
-            // TODO: validate stake and result values.
+            if (DateTime.Now >= bet.Fixture.Start)
+            {
+                // Error - fixture has already started.
+                return -1;
+            }
 
+            if (bet.Stake == 0)
+            {
+                // Error - no stake.
+                return -1;
+            }
+
+            if (bet.Result != Result.HOME || bet.Result != Result.AWAY || bet.Result != Result.DRAW)
+            {
+                // Error - invalid result.
+                return -1;
+            }
+
+            bet.Id = mNextId++;
             mBets.Add(bet);
 
             return bet.Id;
