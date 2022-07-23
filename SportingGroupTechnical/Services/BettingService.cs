@@ -22,7 +22,11 @@ namespace SportingGroupTechnical.Services
          */
         public static Bet? Get(Int32 id)
         {
-            Bet bet = mBets.FirstOrDefault(b => b.Id == id);
+            Bet? bet = mBets.FirstOrDefault(b => b.Id == id);
+            if (bet is null)
+            {
+                return bet;
+            }
 
             // Here we will assign a 'random' result to the associated Fixture, then set the IsWinner and Winnings properties of the Bet.
             // Of course in the real world, this would happen as a result of a fixture completing.
